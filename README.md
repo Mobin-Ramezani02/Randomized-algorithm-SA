@@ -122,13 +122,3 @@ Each variant:
   * Final tour length
   * Execution time
   * Visual plot of the tour
-
----
-
-## Notes
-
-* These implementations are intended for **educational and analytical purposes**
-* Performance is not optimized (full tour distance recomputed each iteration)
-* Suitable for studying algorithmic behavior rather than benchmarking
-
----
