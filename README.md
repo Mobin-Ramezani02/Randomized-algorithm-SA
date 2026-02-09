@@ -36,8 +36,6 @@ All implementations use the **2-opt neighborhood**, where a segment of the tour 
 
 ## 1. Classical Simulated Annealing (Stochastic SA)
 
-## Code Structure and Function Descriptions
-
 ### Imported Libraries
 
 ```python
