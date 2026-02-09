@@ -36,35 +36,177 @@ All implementations use the **2-opt neighborhood**, where a segment of the tour 
 
 ## 1. Classical Simulated Annealing (Stochastic SA)
 
-### Description
+## Code Structure and Function Descriptions
 
-This is the **baseline implementation** of Simulated Annealing and corresponds to the first code provided.
+### Imported Libraries
 
-### Characteristics
+```python
+import math
+import random
+import matplotlib.pyplot as plt
+import time
+```
 
-* **Initial Tour:** Random permutation of cities
-* **Neighbor Selection:** Random selection of two indices `(i, j)`
-* **Acceptance Rule:**
+* `math`: Used for square root and exponential calculations
+* `random`: Used for generating random initial solutions and neighbor moves
+* `matplotlib.pyplot`: Used to visualize the final TSP tour
+* `time`: Used to measure execution time
 
-  * Always accept better solutions
-  * Accept worse solutions with probability:
-    [
-    P = \exp\left(-\frac{\Delta}{T}\right)
-    ]
-* **Cooling Schedule:** Exponential cooling
-* **Stochastic Elements:**
+---
 
-  * Initial solution
-  * Neighbor selection
-  * Acceptance decision
+### `load_dataset(file_path)`
 
-### Purpose
+```python
+def load_dataset(file_path):
+```
 
-This version provides:
+* Reads a **TSPLIB-formatted TSP dataset**
+* Skips the header lines and parses city coordinates
+* Each city is stored as a tuple: `(city_id, x, y)`
+* Returns a list of all cities
 
-* Strong exploration capability
-* Ability to escape local minima
-* A reference point for comparing deterministic variants
+Purpose: Load and store city coordinates for distance computation.
+
+---
+
+### `euclidean_distance(city1, city2)`
+
+```python
+def euclidean_distance(city1, city2):
+```
+
+* Computes the **Euclidean distance** between two cities using their coordinates
+* Uses the standard distance formula:
+  [
+  \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}
+  ]
+
+Purpose: Compute the distance between two cities in 2D space.
+
+---
+
+### `total_distance(cities, tour)`
+
+```python
+def total_distance(cities, tour):
+```
+
+* Calculates the **total length of a TSP tour**
+* Sums distances between consecutive cities in the tour
+* Adds the distance from the last city back to the first to form a closed loop
+
+Inputs:
+
+* `cities`: list of city coordinates
+* `tour`: permutation of city indices
+
+Purpose: Evaluate the quality (cost) of a candidate solution.
+
+---
+
+### `two_opt_swap(tour, i, j)`
+
+```python
+def two_opt_swap(tour, i, j):
+```
+
+* Implements the **2-opt neighborhood operator**
+* Reverses the segment of the tour between indices `i` and `j`
+* Produces a new neighboring tour
+
+Purpose: Generate a neighboring solution for local search.
+
+---
+
+### `simulated_annealing(...)`
+
+```python
+def simulated_annealing(cities, initial_temp, cooling_rate, stopping_temp, max_iter):
+```
+
+This function implements the **classical Simulated Annealing algorithm**.
+
+#### Key Steps:
+
+1. **Initialization**
+
+   * Creates a random initial tour
+   * Computes its total distance
+   * Initializes the best solution found
+
+2. **Main Loop**
+   Runs until:
+
+   * Temperature falls below `stopping_temp`, or
+   * Maximum iterations are reached
+
+3. **Neighbor Generation**
+
+   * Randomly selects two indices `(i, j)`
+   * Applies `two_opt_swap` to generate a new tour
+
+4. **Acceptance Decision**
+
+   * Computes:
+
+     ```
+     delta = new_distance - current_distance
+     ```
+   * Accepts the new solution if:
+
+     * It is better (`delta < 0`), or
+     * With probability `exp(-delta / temperature)` if worse
+
+5. **Cooling**
+
+   * Temperature is reduced exponentially:
+
+     ```
+     temperature *= cooling_rate
+     ```
+
+6. **Best Solution Update**
+
+   * Tracks the best tour encountered during the search
+
+Purpose: Search for a near-optimal TSP tour using probabilistic hill-climbing.
+
+---
+
+### `plot(cities, tour)`
+
+```python
+def plot(cities, tour):
+```
+
+* Visualizes the final TSP tour
+* Plots city coordinates and connecting edges
+* Displays the tour as a closed loop
+* Prints:
+
+  * City visit order
+  * Total tour distance
+
+Purpose: Provide visual and textual representation of the final solution.
+
+---
+
+### Main Execution Block
+
+```python
+start_time = time.time()
+cities = load_dataset("kroB200.txt")
+best_tour, best_distance = simulated_annealing(cities)
+plot(cities, best_tour)
+end_time = time.time()
+```
+
+* Loads the dataset
+* Runs the Simulated Annealing algorithm
+* Visualizes the best tour
+* Measures and prints execution time
+
+Purpose: Execute the full workflow from data loading to result visualization.
 
 ---
 
