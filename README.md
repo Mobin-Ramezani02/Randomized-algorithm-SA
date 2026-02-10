@@ -230,7 +230,7 @@ This variant removes randomness from the **initial solution**.
 To isolate and study the impact of a deterministic starting point on convergence and final solution quality.
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Deterministic-Initial-Tour](outputs/Deterministic-Initial-Tour.png)
 
 ---
 
