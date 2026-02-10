@@ -200,7 +200,7 @@ end_time = time.time()
 ```
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Stochastic-SA](outputs/Stochastic-SA.jpeg)
 
 * Loads the dataset
 * Runs the Simulated Annealing algorithm
@@ -230,7 +230,7 @@ This variant removes randomness from the **initial solution**.
 To isolate and study the impact of a deterministic starting point on convergence and final solution quality.
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Deterministic-Initial-Tour](outputs/Deterministic-Initial-Tour.png)
 
 ---
 
@@ -256,7 +256,7 @@ This variant removes randomness from the **neighbor selection process**.
 To analyze how systematic neighborhood traversal affects exploration and performance.
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Deterministic-City-Selection](outputs/Deterministic-City-Selection.png)
 
 ---
 
@@ -280,7 +280,7 @@ This variant removes stochasticity from the **acceptance mechanism**.
 This effectively converts Simulated Annealing into a **greedy local search** algorithm using 2-opt moves.
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Deterministic-Acceptance](outputs/Deterministic-Acceptance.png)
 
 ---
 
@@ -302,7 +302,7 @@ This is the most restrictive variant, where **all sources of randomness are remo
 Despite the name, this algorithm behaves as a **deterministic 2-opt local search**, useful for direct comparison with stochastic SA.
 
 ### output:
-![](https://example.com/cat.jpg)
+![Fully-Deterministic-SA](outputs/Fully-Deterministic-SA.png)
 
 ---
 
