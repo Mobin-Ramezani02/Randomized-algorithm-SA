@@ -302,7 +302,7 @@ This is the most restrictive variant, where **all sources of randomness are remo
 Despite the name, this algorithm behaves as a **deterministic 2-opt local search**, useful for direct comparison with stochastic SA.
 
 ### output:
-![](https://example.com/cat.jpg)
+![Fully-Deterministic-SA](outputs/Fully-Deterministic-SA.png)
 
 ---
 
