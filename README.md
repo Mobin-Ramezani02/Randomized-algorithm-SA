@@ -280,7 +280,7 @@ This variant removes stochasticity from the **acceptance mechanism**.
 This effectively converts Simulated Annealing into a **greedy local search** algorithm using 2-opt moves.
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Deterministic-Acceptance](outputs/Deterministic-Acceptance.png)
 
 ---
 
