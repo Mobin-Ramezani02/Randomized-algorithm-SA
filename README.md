@@ -199,12 +199,17 @@ plot(cities, best_tour)
 end_time = time.time()
 ```
 
+### Output:
+![](https://example.com/cat.jpg)
+
 * Loads the dataset
 * Runs the Simulated Annealing algorithm
 * Visualizes the best tour
 * Measures and prints execution time
 
 Purpose: Execute the full workflow from data loading to result visualization.
+
+
 
 ---
 
@@ -223,6 +228,9 @@ This variant removes randomness from the **initial solution**.
 ### Purpose
 
 To isolate and study the impact of a deterministic starting point on convergence and final solution quality.
+
+### Output:
+![](https://example.com/cat.jpg)
 
 ---
 
@@ -247,6 +255,9 @@ This variant removes randomness from the **neighbor selection process**.
 
 To analyze how systematic neighborhood traversal affects exploration and performance.
 
+### Output:
+![](https://example.com/cat.jpg)
+
 ---
 
 ## 4. Deterministic Acceptance (Greedy SA)
@@ -268,6 +279,9 @@ This variant removes stochasticity from the **acceptance mechanism**.
 
 This effectively converts Simulated Annealing into a **greedy local search** algorithm using 2-opt moves.
 
+### Output:
+![](https://example.com/cat.jpg)
+
 ---
 
 ## 5. Fully Deterministic Simulated Annealing
@@ -286,6 +300,9 @@ This is the most restrictive variant, where **all sources of randomness are remo
 ### Interpretation
 
 Despite the name, this algorithm behaves as a **deterministic 2-opt local search**, useful for direct comparison with stochastic SA.
+
+### output:
+![](https://example.com/cat.jpg)
 
 ---
 
