@@ -256,7 +256,7 @@ This variant removes randomness from the **neighbor selection process**.
 To analyze how systematic neighborhood traversal affects exploration and performance.
 
 ### Output:
-![](https://example.com/cat.jpg)
+![Deterministic-City-Selection](outputs/Deterministic-City-Selection.png)
 
 ---
 
