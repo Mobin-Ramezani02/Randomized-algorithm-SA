@@ -200,7 +200,7 @@ end_time = time.time()
 ```
 
 ### Output:
-![Stochastic-SA]([outputs/Stochastic-SA.jpeg))
+![Stochastic-SA]([outputs/Stochastic-SA.jpeg)
 
 * Loads the dataset
 * Runs the Simulated Annealing algorithm
